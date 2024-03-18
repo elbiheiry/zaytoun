@@ -1,0 +1,143 @@
+@use "../abstracts/abstracts_all" as *;
+
+/* Main Section
+=============================*/
+.main_section {
+  width: 100%;
+  padding: 0px !important;
+  height: calc(100vh - 50px);
+  @include flex(row, center, center);
+  background: url(../images/bc.jpg) center fixed no-repeat;
+  background-size: cover;
+  @include mediaquery(max, desktop) {
+    height: auto;
+  }
+}
+.look_cont {
+  position: absolute;
+  background-color: rgba($main_color, 0.95);
+  top: 0px;
+  left: 0px;
+  text-align: center;
+  height: 100%;
+  width: 100%;
+  @include flex(column, center, center);
+  padding: 0 60px;
+
+  h1 {
+    color: rgb(255, 255, 255);
+    font-weight: $weight_xbold;
+    font-size: 62px;
+    max-width: 940px;
+    letter-spacing: 2px;
+  }
+  p {
+    max-width: 768px;
+    margin: 20px 0;
+    color: #fff;
+    font-size: 32px;
+  }
+  .link {
+    margin: 25px auto 0px;
+  }
+  @include mediaquery(max, l_desktop) {
+    h1 {
+      font-size: 42px;
+    }
+    p {
+      font-size: 24px;
+    }
+  }
+
+  @include mediaquery(max, desktop) {
+    position: relative;
+    padding: 200px 15px;
+    h1 {
+      font-size: 32px;
+    }
+    p {
+      margin: 10px auto 0;
+    }
+  }
+  @include mediaquery(max, tablet) {
+    p {
+      font-size: 20px;
+    }
+  }
+  @include mediaquery(max, mobile) {
+    min-height: 520px;
+    padding: 150px 15px;
+    h1 {
+      font-weight: $weight_bold;
+      font-size: 18px;
+    }
+    p {
+      font-size: 15px;
+      letter-spacing: 0.5px;
+    }
+  }
+}
+.carousel,
+.carousel-item,
+.carousel-inner {
+  width: 100%;
+  height: 100%;
+}
+.main_section .carousel-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+.main_section .carousel-indicators {
+  right: 0;
+  left: 0;
+  bottom: 120px;
+  margin: auto;
+  height: 12px;
+  width: 100%;
+  text-align: center;
+  padding: 0px;
+  display: block;
+  @include mediaquery(max, tablet) {
+    bottom: 80px;
+  }
+  li {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    opacity: 1;
+    overflow: hidden;
+    background-color: rgb(255, 255, 255);
+    text-indent: unset;
+    margin: 0 2px;
+    border: 0;
+    @include border_radius(25px);
+    @include transition(0.4s width linear);
+    &.active {
+      background-color: $second_color;
+      width: 27px;
+      @include border_radius(25px);
+    }
+  }
+}
+.carousel-control-next,
+.carousel-control-prev {
+  position: absolute;
+  inset: 0px 25px 0px auto;
+  margin: auto;
+  opacity: 1;
+  right: 10px;
+  font-size: 14px;
+  @include mediaquery(max, tablet) {
+    display: none;
+  }
+}
+.carousel-control-next i,
+.carousel-control-prev i {
+  line-height: 40px;
+}
+.carousel-control-prev {
+  left: 10px;
+  right: auto;
+}

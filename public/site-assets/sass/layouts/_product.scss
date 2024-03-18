@@ -1,0 +1,288 @@
+@use "../abstracts/abstracts_all" as *;
+.projects {
+  padding-top: 0;
+  .container-fluid {
+    position: relative;
+    background-color: $main_color;
+    padding: 80px 15px 120px;
+    color: #fff;
+    background: url(../images/bc.jpg) center fixed no-repeat;
+    background-size: cover;
+    @include mediaquery(max, tablet) {
+      padding: 30px 15px 90px;
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      background-color: rgba($main_color, 0.95);
+      top: 0px;
+      left: 0px;
+      text-align: center;
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  .gray_bc {
+    position: relative;
+    z-index: 999;
+    margin-top: -80px;
+    background-color: #ffffff;
+    padding: 5px 15px;
+    @include mediaquery(max, tablet) {
+      padding: 0;
+    }
+  }
+  .section_title {
+    color: #fff;
+    p {
+      color: #fff;
+      font-size: 24px;
+    }
+  }
+}
+.product_item {
+  display: block;
+  color: $main_color;
+  margin-top: 25px;
+  @include transition(0.3s linear all);
+
+  .product_cover {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    @include flex(column, center, center);
+    height: 365px;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 0%;
+      z-index: 999;
+      background-color: rgba($main_color, 0.75);
+
+      @include transition(0.3s linear height);
+      transition-delay: 0.2s;
+    }
+    .icon {
+      margin: auto;
+      position: absolute;
+      color: #fff;
+      width: 55px;
+      height: 55px;
+      line-height: 55px;
+      font-size: 24px;
+      @include transform(translateX(-15px));
+      opacity: 0;
+      visibility: hidden;
+      @include transition(0.3s linear all);
+      transition-delay: 0s;
+      z-index: 9998;
+    }
+    img {
+      object-fit: cover;
+      z-index: 998;
+      height: 100%;
+      width: 100%;
+      @include transition(0.5s linear transform);
+    }
+    @include mediaquery(max, tablet) {
+      height: auto;
+      img {
+        height: auto;
+      }
+    }
+  }
+  .cont {
+    background: #f4f4f4;
+    padding: 25px;
+    min-height: 190px;
+    h3 {
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: 18px;
+      color: $main_color;
+      letter-spacing: 1px;
+    }
+    p {
+      color: $black_color;
+      margin: 10px 0;
+      font-size: 14px;
+      line-height: 25px;
+      letter-spacing: 0.6px;
+    }
+    a {
+      display: inline-block;
+      color: $second_color;
+    }
+  }
+  &:hover {
+    .product_cover {
+      &::before {
+        height: 100%;
+        transition-delay: 0s;
+      }
+      .icon {
+        opacity: 1;
+        visibility: visible;
+        @include transform(translateX(0));
+        transition-delay: 0.2s;
+      }
+      img {
+        @include transform(scale(1.07) rotate(3deg));
+      }
+    }
+    h3 {
+      color: $second_color;
+    }
+  }
+}
+.side_info {
+  background-color: #fff;
+  position: sticky;
+  top: 150px;
+  h3 {
+    color: $main_color;
+    text-transform: uppercase;
+    font-weight: $weight_bold;
+    font-size: 18px;
+    letter-spacing: 2px;
+    padding: 15px;
+    margin: 0;
+  }
+  ul {
+    li {
+      border-top: 1px solid #f1f1f1;
+      @include flex(row, flex-start, flex-start);
+      width: 100%;
+      padding: 15px;
+      i {
+        min-width: 40px;
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        color: $main_color;
+        @include border_radius(50%);
+        background-color: #ffe4d4;
+        margin-inline-end: 15px;
+      }
+      .cont {
+        font-size: 14px;
+        span {
+          margin-bottom: 5px;
+          text-transform: uppercase;
+          font-size: 14px;
+          display: block;
+          color: $main_color;
+          font-weight: $weight_bold;
+        }
+      }
+    }
+  }
+  a {
+    display: block;
+    text-align: center;
+    padding: 15px;
+    background-color: $second_color;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 1px;
+    font-weight: $weight_bold;
+    line-height: 25px;
+    i {
+      background-color: #fff2;
+      color: $main_color;
+      width: 30px;
+      height: 30px;
+      line-height: 30px;
+      @include border_radius(50%);
+      text-align: center;
+      vertical-align: middle;
+      margin-inline-end: 5px;
+    }
+  }
+  @include mediaquery(min, desktop) {
+    @include mediaquery(max, l_desktop) {
+      ul li {
+        padding: 10px 5px;
+        .cont {
+          font-size: 12px;
+          span {
+            font-size: 13px;
+          }
+        }
+      }
+      a {
+        letter-spacing: 0;
+        padding: 10px 5px;
+      }
+    }
+  }
+}
+.project_info {
+  padding: 25px;
+  background-color: #fff;
+  margin-bottom: 25px;
+  h2 {
+    color: $main_color;
+    font-weight: $weight_bold;
+    font-size: 22px;
+    letter-spacing: 2px;
+    margin: 0 0 15px;
+  }
+  h3 {
+    color: $main_color;
+    font-weight: $weight_bold;
+    font-size: 18px;
+    letter-spacing: 1px;
+    margin: 0 0 15px;
+    text-transform: uppercase;
+  }
+  h4 {
+    line-height: 25px;
+    font-size: 16px;
+    position: relative;
+    margin: 25px auto;
+    text-align: center;
+    background-color: #ffe4d4;
+    padding: 30px 40px;
+    text-transform: uppercase;
+    font-weight: $weight_bold;
+
+    &::before,
+    &::after {
+      font-family: "Font Awesome 5 Free";
+      position: absolute;
+      font-weight: 900;
+      font-size: 40px;
+      opacity: 50%;
+      color: $second_color;
+    }
+    &::before {
+      content: "\f10d";
+      top: 15px;
+      left: 15px;
+    }
+
+    &::after {
+      content: "\f10e";
+      bottom: 15px;
+      right: 15px;
+    }
+  }
+  p {
+    font-size: 16px;
+    line-height: 25px;
+    color: #444;
+  }
+  @include mediaquery(max, mobile) {
+    padding: 15px;
+    h2 {
+      font-size: 16px;
+    }
+  }
+}

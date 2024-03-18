@@ -1,0 +1,247 @@
+@use "../abstracts/abstracts_all" as *;
+
+@import url("https://fonts.googleapis.com/css2?family=Almarai:wght@400;700;800&display=swap");
+$weight_bold: 700;
+
+html[dir="rtl"] {
+  body {
+    font-family: "Almarai", sans-serif;
+    letter-spacing: 0 !important;
+  }
+  .text-left {
+    text-align: start !important;
+  }
+  .ml-0 {
+    margin-left: auto;
+    margin-right: 0;
+  }
+  .link {
+    letter-spacing: 0;
+  }
+  .owl-carousel .owl-stage-outer {
+    direction: ltr;
+  }
+  .fa-angle-right,
+  .fa-long-arrow-alt-right {
+    @include transform(rotateY(180deg));
+  }
+  .carousel-control-next .fa-angle-right {
+    @include transform(rotateY(0deg));
+  }
+
+  .top_header {
+    a {
+      letter-spacing: 0;
+    }
+
+    .call {
+      right: auto;
+      left: 0;
+      i {
+        margin: 0 0 0 5px;
+      }
+      span {
+        letter-spacing: 0;
+      }
+    }
+  }
+
+  header {
+    .navbar-brand {
+      left: auto;
+      right: 0;
+    }
+    .btns {
+      right: auto;
+      left: 0;
+    }
+  }
+  .navbar {
+    ul.navbar-nav {
+      li {
+        a {
+          letter-spacing: 0;
+          font-size: 14px;
+        }
+        @include mediaquery(min, desktop) {
+          &.dropdown {
+            .dropdown-menu {
+              left: 0;
+              right: auto;
+            }
+            .sub_dropdown {
+              position: relative;
+              .dropdown-menu_sub {
+                left: -100%;
+                right: auto;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @include mediaquery(max, desktop) {
+    header .btns {
+      right: auto;
+      left: 10px;
+    }
+  }
+.page_head {
+    &::before {
+      left: auto;
+      right: 0;
+    }
+    h3 {
+      letter-spacing: 0;
+    }
+    ul {
+      li {
+        letter-spacing: 0;
+        a {
+          &::after {
+            content: " / ";
+            right: auto;
+            left: 0px;
+          }
+        }
+      }
+    }
+  .look_cont {
+    h1 {
+      letter-spacing: 0;
+    }
+
+    @include mediaquery(max, mobile) {
+      p {
+        letter-spacing: 0;
+      }
+    }
+  }
+  .about {
+    .about_cont {
+      .text {
+        h1 {
+          letter-spacing: 0;
+        }
+      }
+      .exper {
+        right: auto;
+        left: -20px;
+        letter-spacing: 0;
+        &::after {
+          right: auto;
+          left: 0;
+          border-top-color: $second_color;
+          border-left-color: transparent;
+          border-right-color: $second_color;
+        }
+      }
+      @include mediaquery(max, mobile) {
+        .text {
+          h1 {
+            letter-spacing: 0;
+          }
+        }
+        .exper {
+          right: auto;
+          left: 0;
+          &::after {
+            display: none;
+          }
+        }
+      }
+    }
+    .hint {
+      h3 {
+        letter-spacing: 0;
+      }
+      p {
+        letter-spacing: 0;
+      }
+    }
+    .ceo {
+      .author {
+        letter-spacing: 0;
+      }
+    }
+  }
+
+  .core_item {
+    .cont {
+      p {
+        margin: 0;
+        font-size: 15px;
+        letter-spacing: 0;
+      }
+    }
+  }
+
+  .product_item {
+    .product_cover {
+      .icon {
+        @include transform(translateX(15px));
+        &::before {
+          content: "\f30a";
+        }
+      }
+    }
+    &:hover {
+      .product_cover {
+        .icon {
+          @include transform(translateX(0px));
+        }
+      }
+    }
+  }
+  .blog_item {
+    direction: rtl;
+  }
+  .blog_item .cont .date {
+    right: 15px;
+    left: auto;
+  }
+  .more_btn {
+    left: 15px;
+    right: auto;
+  }
+  .subscribe {
+    .subscribe_cont {
+      h3 {
+        letter-spacing: 0;
+      }
+
+      form {
+        .link {
+          right: auto;
+          left: -2px;
+        }
+      }
+    }
+  }
+  footer {
+    h3 {
+      &::before {
+        left: auto;
+        right: 0;
+      }
+    }
+    ul {
+      li {
+        a {
+          letter-spacing: 0;
+        }
+        &::before {
+          left: auto;
+          right: 0;
+          @include transform(rotateY(180deg));
+        }
+      }
+    }
+  }
+  .up_btn {
+    right: 15px;
+    left: auto;
+  }
+}
